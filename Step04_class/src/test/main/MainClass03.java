@@ -1,7 +1,5 @@
 package test.main;
 
-import java.io.PrintStream;
-
 import test.mypac.MyUtil;
 
 public class MainClass03 {
