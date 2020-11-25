@@ -1,6 +1,10 @@
 package test.mypac;
 
 public class SmartPhone extends HandPhone{
+	@Override
+	public void call() {
+		System.out.println("SmartPhone에서 전화를 해요");
+	}
 	public void doInternet() {
 		System.out.println("인터넷을 해요");
 	}
