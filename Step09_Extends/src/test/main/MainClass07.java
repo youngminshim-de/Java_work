@@ -5,31 +5,23 @@ import test.mypac.Phone;
 import test.mypac.SmartPhone;
 
 public class MainClass07 {
-
 	public static void main(String[] args) {
-		usePhone(new Phone());
-		// Phone Type을 제외하고 아래 두 type은 if문에 들어간다.
-		// SmartPhone은 HandPhone의 자식클래스이므로
-		usePhone(new HandPhone());
-		usePhone(new SmartPhone());
-		
+		MainClass07.usePhone(new Phone());
+		MainClass07.usePhone(new HandPhone());
+		MainClass07.usePhone(new SmartPhone());
 	}
+	
 	public static void usePhone(Phone p) {
-		
-		// 만일 p가 HandPhone type이 맞다면
-		if(p instanceof HandPhone) {
+		p.call();
+		//만일 p 안에 있는 값이 HandPhone type 이 맞다면...
+		if(p instanceof HandPhone) { // instanceof 라는 연산자는 true or false 리턴
 			HandPhone p2=(HandPhone)p;
 			p2.call();
-			p.call();
-		}
-		else if(p instanceof SmartPhone) {
-			//SmartPhone p3=(SmartPhone)p;
-			//p3.call();
-			p.call();
-		}
-		else {
-			p.call();
 		}
 	}
-
 }
+
+
+
+
+
