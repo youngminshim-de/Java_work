@@ -1,6 +1,9 @@
 package test.mypac;
 
 public class HandPhone extends Phone {
+	public HandPhone() {
+		System.out.println("HandPhone 생성자 호출됨");
+	}
 
 	public void call() {
 		// super() constructor 호출. super로 참조하여  부모클래스 메소드 접근 가능!

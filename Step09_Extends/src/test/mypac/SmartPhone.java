@@ -1,6 +1,9 @@
 package test.mypac;
 
 public class SmartPhone extends HandPhone{
+	public SmartPhone() {
+		System.out.println("SmartPhone() 생성자 호출됨");
+	}
 	@Override
 	public void call() {
 		System.out.println("SmartPhone에서 전화를 해요");
