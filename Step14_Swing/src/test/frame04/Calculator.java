@@ -12,13 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Calculator extends JFrame
-				implements ActionListener{
+public class Calculator extends JFrame implements ActionListener{
 	
 	JTextField inputText1;
 	JTextField inputText2;
 	JLabel label1;
 	JLabel label2;
+	
 	public Calculator(String title) {
 		super(title);
 		setLayout(new BorderLayout());
@@ -66,8 +66,9 @@ public class Calculator extends JFrame
 		double num1=Double.parseDouble(inputText1.getText());
 		double num2=Double.parseDouble(inputText2.getText());
 		double result=0;
+		String symbol=e.getActionCommand();
 		
-		switch(e.getActionCommand()) {
+		switch(symbol) {
 			case "+" : result=num1+num2;break;
 					   
 			case "-" : result=num1-num2;break;
@@ -77,9 +78,5 @@ public class Calculator extends JFrame
 			case "/" : result=num1/num2;break;
 		}
 		label2.setText(Double.toString(result));
-		inputText1.setText("");
-		inputText2.setText("");
-		
 	}
-
 }
