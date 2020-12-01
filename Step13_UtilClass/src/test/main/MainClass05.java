@@ -17,13 +17,16 @@ public class MainClass05 {
 		
 		List<String> list=new ArrayList<>();
 		Scanner keyboard=new Scanner(System.in);
+
 		for(int i=0; i<5; i++) {
 			System.out.print("친구의 이름을 입력하세요 :");
-			String str=keyboard.nextLine();
-			list.add(str);
+			list.add(keyboard.nextLine());
 		}
-		for(int i=0; i<list.size(); i++) {
-			System.out.println(i+"번째 친구 이름 : "+list.get(i));
+		for(int i=1; i<=list.size(); i++) {
+			System.out.println(i+"번째 친구 이름 : "+list.get(i-1));
+		}
+		for(String str:list) {
+			System.out.println(str);
 		}
 		                                
 	}
