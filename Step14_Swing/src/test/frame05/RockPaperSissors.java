@@ -50,47 +50,61 @@ public class RockPaperSissors extends JFrame implements ActionListener, Numberin
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Random ran=new Random();
-		int computerNum=ran.nextInt(3);
-		switch(computerNum) {
+		int user=0;
+		int com=ran.nextInt(3);
+		String result=null;
+		switch(e.getActionCommand()) {
+		case "ROCK": user=0;break;
+		case "SISSOR": user=1;break;
+		case "PAPER": user=2;break;
+		}
+		
+		switch(com) {
 			case ROCK: label2.setText("상대방의 패 : "+"바위");break;
 			case SISSOR: label2.setText("상대방의 패 : "+"가위");break;
 			case PAPER: label2.setText("상대방의 패 : "+"보");break;
 		}
+		if(user==SISSOR && com==PAPER) {result="You win!";}
+		else if(user==ROCK && com==SISSOR) {result="You win!";}
+		else if(user==PAPER && com==ROCK) {result="You win!";}
+		else if(user==com) {result="Draw";}
+		else {result="You Lose T_T";}
 		
-		switch(e.getActionCommand()) {
-			case "ROCK": 
-				if(computerNum==ROCK) {
-					JOptionPane.showMessageDialog(this, "Draw-");break;
-				}
-				else if(computerNum==SISSOR) {
-					JOptionPane.showMessageDialog(this, "You Win!");break;
-				}
-				else {
-					JOptionPane.showMessageDialog(this, "You Lose!");break;
-				}
-			case "SISSOR":
-				if(computerNum==ROCK) {
-					JOptionPane.showMessageDialog(this, "You Lose!");break;
-				}
-				else if(computerNum==SISSOR) {
-					JOptionPane.showMessageDialog(this, "Draw-");break;
-				}
-				else {
-					JOptionPane.showMessageDialog(this, "You win!");break;
-				}
-			case "PAPER":
-				if(computerNum==ROCK) {
-					JOptionPane.showMessageDialog(this, "You Win!");break;
-				}
-				else if(computerNum==SISSOR) {
-					JOptionPane.showMessageDialog(this, "You Lose!");break;
-				}
-				else {
-					JOptionPane.showMessageDialog(this, "Draw-");break;
-				}
-		}
+		JOptionPane.showMessageDialog(this, result);
 		
-		
+//		switch(e.getActionCommand()) {
+//			case "ROCK": 
+//				if(com==ROCK) {
+//					
+//					JOptionPane.showMessageDialog(this, "Draw-");break;
+//				}
+//				else if(com==SISSOR) {
+//					JOptionPane.showMessageDialog(this, "You Win!");break;
+//				}
+//				else {
+//					JOptionPane.showMessageDialog(this, "You Lose!");break;
+//				}
+//			case "SISSOR":
+//				if(com==ROCK) {
+//					JOptionPane.showMessageDialog(this, "You Lose!");break;
+//				}
+//				else if(com==SISSOR) {
+//					JOptionPane.showMessageDialog(this, "Draw-");break;
+//				}
+//				else {
+//					JOptionPane.showMessageDialog(this, "You win!");break;
+//				}
+//			case "PAPER":
+//				if(com==ROCK) {
+//					JOptionPane.showMessageDialog(this, "You Win!");break;
+//				}
+//				else if(com==SISSOR) {
+//					JOptionPane.showMessageDialog(this, "You Lose!");break;
+//				}
+//				else {
+//					JOptionPane.showMessageDialog(this, "Draw-");break;
+//				}
+//		}
 	}
 	public static void main(String[] args) {
 		RockPaperSissors game=new RockPaperSissors("가위바위보 게임");
