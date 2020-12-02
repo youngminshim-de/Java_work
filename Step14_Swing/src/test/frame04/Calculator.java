@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -63,20 +64,28 @@ public class Calculator extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		double num1=Double.parseDouble(inputText1.getText());
-		double num2=Double.parseDouble(inputText2.getText());
-		double result=0;
-		String symbol=e.getActionCommand();
-		
-		switch(symbol) {
-			case "+" : result=num1+num2;break;
-					   
-			case "-" : result=num1-num2;break;
-					   
-			case "*" : result=num1*num2;break;
-			   		   
-			case "/" : result=num1/num2;break;
+		try {
+			double num1=Double.parseDouble(inputText1.getText());
+			double num2=Double.parseDouble(inputText2.getText());
+			double result=0;
+			String symbol=e.getActionCommand();
+			
+			switch(symbol) {
+				case "+" : result=num1+num2;break;
+						   
+				case "-" : result=num1-num2;break;
+						   
+				case "*" : result=num1*num2;break;
+				   		   
+				case "/" : result=num1/num2;break;
+			}
+			label2.setText(Double.toString(result));
+		}catch(NumberFormatException nfe) {
+			nfe.printStackTrace();
+			JOptionPane.showMessageDialog(this, "숫자 형식으로 입력해주세요");
+		}catch(ArithmeticException ae) {
+			ae.printStackTrace();
+			JOptionPane.showMessageDialog(this, "0으로 나눌수는 없습니다.");
 		}
-		label2.setText(Double.toString(result));
 	}
 }
