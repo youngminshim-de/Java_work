@@ -18,6 +18,7 @@ public class MainClass05 {
 		Drill d1=()->{
 			System.out.println("이것도 같은표현");
 		};
+		useDrill(d1);
 		
 	}
 

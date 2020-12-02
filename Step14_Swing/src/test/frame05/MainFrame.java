@@ -40,7 +40,6 @@ public class MainFrame extends JFrame implements ActionListener{
 		mf1.setBounds(100, 100, 300, 300);
 		mf1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mf1.setVisible(true);
-		
 	}
 
 }
