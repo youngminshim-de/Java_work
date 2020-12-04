@@ -1,5 +1,6 @@
 package test.main;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -24,7 +25,5 @@ public class MainClass11 {
 		fw.write("\"김구라\" \"해골\" \"원숭이\" \"주뎅이\" \"덩어리\"");
 		fw.flush();
 		fw.close();
-		
 	}
-
 }

@@ -33,7 +33,7 @@ public class MainClass12 {
 //		}
 //		세번째 방법
 //		BufferedReader br=new BufferedReader(new FileReader(myFile));
-//		String str=br.readLine(); readLine() 더이상 읽어올 문자열이 업으면 null return
+//		String str=br.readLine(); 더이상 읽어올 문자열이 업으면 null return
 //		System.out.println(str);
 //		br.close();
 	}
