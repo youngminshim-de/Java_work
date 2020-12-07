@@ -30,6 +30,12 @@ public class MainFrame extends JFrame implements ActionListener{
 		String tempStr="";
 		for(int i=0; i<ranNum.length; i++) {
 			ranNum[i]=ran.nextInt(45)+1;
+			for(int j=i; j>0; j--) {
+				if(ranNum[i]==ranNum[j]) {
+					ranNum[i]=ran.nextInt(45)+1;
+					j=i;
+				}
+			}
 			tempStr+=ranNum[i]+" ";
 		}
 		JOptionPane.showMessageDialog(this,tempStr);

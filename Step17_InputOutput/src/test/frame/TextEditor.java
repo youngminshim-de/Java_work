@@ -72,6 +72,7 @@ public class TextEditor extends JFrame implements ActionListener, Command {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		JFileChooser fc=new JFileChooser("c:/myFolder");
 		String choice=e.getActionCommand();
 		switch(choice) {
 			case "COMMAND_NEW": textNew();break;
@@ -98,7 +99,9 @@ public class TextEditor extends JFrame implements ActionListener, Command {
 			
 			while(true) {
 				String line=breader.readLine();
-				if(line==null) {break;}
+				if(line==null) {
+					break;
+				}
 				ta.append(line+"\r\n");
 			}
 		} catch (IOException e) {
