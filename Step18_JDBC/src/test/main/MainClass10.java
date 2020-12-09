@@ -1,5 +1,7 @@
 package test.main;
 
+import java.util.List;
+
 import test.member.dao.MemberDao;
 import test.member.dto.MemberDto;
 
@@ -27,6 +29,8 @@ public class MainClass10 {
 		}else {
 			System.out.println("회원정보 추가 실패");
 		}
+		List<MemberDto> list;
+		list=dao.selectAll();
 		
 	}	
 }
