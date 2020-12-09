@@ -15,8 +15,7 @@ import test.member.dto.MemberDto;
  * 	Scanner 객체를 이용해서 검색할 회원을 정보를 입력 받고
  * 	입력 받은 숫자를 이용하여 해당 row를 select문을 수행하고,
  * 	결과값을 MemberDto 객체에 저장한다.
- * 
- * 	결과가 없다면 MemberDto 객체 생성하지 말것
+ *  단, 결과가 없다면 MemberDto 객체 생성하지 말것
  */
 public class MainClass07 {
 
@@ -40,12 +39,10 @@ public class MainClass07 {
 			rs=pstmt.executeQuery();
 			boolean isExist=rs.next();
 			if(isExist) {
-//				String name=rs.getString("name");
-//				String addr=rs.getString("addr");
-//				member=new MemberDto(num,name,addr);
-				member=new MemberDto(
-						num, rs.getString("name"), rs.getString("addr")
-						);
+				member=new MemberDto();
+				member.setNum(num);
+				member.setName(rs.getString("name"));
+				member.setAddr(rs.getString("addr"));
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
