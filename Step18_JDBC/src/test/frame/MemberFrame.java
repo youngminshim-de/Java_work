@@ -54,7 +54,13 @@ public class MemberFrame extends JFrame
 		model=new DefaultTableModel(colNames,0) {
 			@Override
 			public boolean isCellEditable(int row, int column) {
-				return false;
+				System.out.println(row+"|"+column);
+				// 번호만 수정 불가하게 한다.
+				if(column==0) {
+					return false;
+				}else {
+					return true;
+				}
 			}
 		};
 		
@@ -102,14 +108,7 @@ public class MemberFrame extends JFrame
 		if(command.equals("add")) {
 			addMember();
 		}else if(command.equals("delete")) {
-			int selectedIndex=table.getSelectedRow();
-			if(selectedIndex==-1) {
-				JOptionPane.showMessageDialog(this, "삭제할 row를 선택해라");
-				return;
-			}
-			int num=(int)table.getValueAt(selectedIndex, 0);
-			new MemberDao().deleteMember(num);
-			printMember();
+			deleteMember();
 		}
 		
 	}
@@ -151,6 +150,25 @@ public class MemberFrame extends JFrame
 		}
 		else {
 			JOptionPane.showMessageDialog(this, "추가 실패!");
+		}
+	}
+	public void deleteMember() {
+		//선택된 row 의 인덱스를 읽어온다.
+		int selectedIndex=table.getSelectedRow();
+		if(selectedIndex == -1) {
+			JOptionPane.showMessageDialog(this,"삭제할 row 를 선택해라");
+			return;//메소드를 여기서 끝내라 
+		}
+		//선택한 row 의 0 번 칼럼의 값(번호)을 읽어와서 int 로 casting 하기 
+		int num=(int)table.getValueAt(selectedIndex, 0);
+		//삭제 하기전에 한번 확인하기
+		int result=JOptionPane.showConfirmDialog(this, num+" 번 회원을 삭제할겨?");
+		//만일 yes 를 눌렀을때 
+		if(result == JOptionPane.YES_OPTION) {
+			//MemberDao 객체를 이용해서 삭제하기
+			new MemberDao().deleteMember(num);
+			//UI 업데이트 (목록 다시 출력하기)
+			printMember();
 		}
 	}
 	//화면을 주기적으로 update 해주는 스레드
